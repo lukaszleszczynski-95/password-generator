@@ -6,6 +6,8 @@ const numbersEl = document.getElementById('numbers');
 const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generate');
 const clipboardEl = document.getElementById('clipboard');
+const progressBar = document.querySelector('.progressBar');
+
 
 const randomFunc = {
     lower: getRandomLower,
@@ -27,6 +29,8 @@ generateEl.addEventListener('click', () => {
         hasNumber, 
         hasSymbol, 
         length);
+
+       
 });
 
 
@@ -65,8 +69,32 @@ function generatePassword(lower, upper, number, symbol, length) {
     }
 
     const finalPassword = generatedPassword.slice(0, length);
+    
+    updateProgressBar(length);
+
     return shuffleArr(finalPassword);
+
+    
+
    
+   
+}
+
+// Trying to update it in an easier way using styles
+function updateProgressBar(length) {
+    if(length <= 5){
+        progressBar.style.width = '25%';
+        progressBar.style.backgroundColor = 'red';
+    } else if(length >= 6 && length <= 10){
+        progressBar.style.width = '50%';
+        progressBar.style.backgroundColor = 'orange';
+    } else if(length >= 11 && length <= 15){
+        progressBar.style.width = '75%';
+        progressBar.style.backgroundColor = 'yellow';
+    } else if(length >= 16){
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = 'lightgreen';
+    }
 }
 
 
