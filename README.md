@@ -1,6 +1,6 @@
 # Password-generator
 
-Inspired by Florin Pop and Traversy Media I recreated Password Generator updated and added a few extra features.
+Inspired by Florin Pop and Traversy Media I recreated Password Generator with new styling and added a few extra features.
 
 
 
