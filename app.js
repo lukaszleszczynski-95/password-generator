@@ -52,21 +52,25 @@ function generatePassword(lower, upper, number, symbol, length) {
     const typesArr = [{lower}, {upper}, {number}, {symbol}]
     .filter(item => Object.values(item)[0]);
 
-    // console.log(typesArr);
+    console.log(typesArr);
 
     // If none of options are checked it will return an empty string, no password
     if(typesCount === 0){
         return '';
     };
 
+// Looping over lentgh of the password; increase the index by the amout of checked options
     for(let i = 0; i < length; i += typesCount) {
         typesArr.forEach(type => {
             const funcName = Object.keys(type)[0];
-            // console.log('funcName: ', funcName)
+            console.log('funcName: ', funcName)
+
 
             generatedPassword += randomFunc[funcName]();
         })
     }
+
+
 
     const finalPassword = generatedPassword.slice(0, length);
     
