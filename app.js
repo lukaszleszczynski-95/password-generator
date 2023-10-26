@@ -80,11 +80,13 @@ function generatePassword(lower, upper, number, symbol, length) {
 
     
 
+
+
    
    
 }
 
-// Trying to update it in an easier way using styles
+// Create a function that shows how strong the password is the bar based on the legth of the password
 function updateProgressBar(length) {
     if(length <= 5){
         progressBar.style.width = '25%';
@@ -101,7 +103,7 @@ function updateProgressBar(length) {
     }
 }
 
-
+// Fisher Yates algorithm to shuffle generated password
 function shuffleArr(array) {
     const strArray = array.split('');
     for (let i = strArray.length - 1; i > 0; i--) {
@@ -118,32 +120,44 @@ function shuffleArr(array) {
 
 // Generator functions
 
+// Generate a radom lowercase letter
 function getRandomLower(){
+    // Generate random number and multiply it by number of characters
     const random = Math.floor(Math.random() * 26);
-
+    // Return a string CharCode table; 122 is the position where ther last lowercase character ends at the CharCode.
     return String.fromCharCode(122 - random)
 }
-function getRandomUpper(){
-    const random = Math.floor(Math.random() * 26);
 
+// Generate a radom uppercase letter
+function getRandomUpper(){
+    // Generate random number and multiply it by number of characters
+    const random = Math.floor(Math.random() * 26);
+    // Return a string CharCode table; 65 is the position where ther first uppercase character begins at the CharCode.
     return String.fromCharCode(random + 65)
 }
 
+// Generate a random number 
 function getRandomNumber(){
+    // Generate random number and multiply it by number of characters
     const random = Math.floor(Math.random() * 10);
-
+// Return a string CharCode table; 48 is the position where ther first uppercase character begins at the CharCode.
     return String.fromCharCode(random + 48)
 }
-function getRandomSymbol(){
-    const symbols = '!@#$%^&*(){}?/';
 
+// Generate a random symbol
+function getRandomSymbol(){
+    // Set a string of symbols we want to include in a password
+    const symbols = '!@#$%^&*(){}?/';
+    // Return a random symbol by generating random number and multiplying it by the length of the array.
     return symbols[Math.floor(Math.random() * symbols.length)]
     
 }
 
+// Function that copies generated pasword to clipboar; BTW quite old fashioned way
 function copyToClipboard(){
+    //  Set a variable that stores newly generated password
     const textToCopy = resultEl.innerHTML;
-
+    // If there is no password generated, return the function
     if(!textToCopy){
         return
     }
