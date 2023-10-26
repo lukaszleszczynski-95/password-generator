@@ -61,11 +61,13 @@ function generatePassword(lower, upper, number, symbol, length) {
 
 // Looping over lentgh of the password; increase the index by the amout of checked options
     for(let i = 0; i < length; i += typesCount) {
+        // Looping over typesArr (array of objects)
         typesArr.forEach(type => {
+            // Set a variable that stores key from every object
             const funcName = Object.keys(type)[0];
             console.log('funcName: ', funcName)
 
-
+            // Updating generatedPassword string
             generatedPassword += randomFunc[funcName]();
         })
     }
