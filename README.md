@@ -9,5 +9,5 @@ I have added a Fisher Yates Algorithm to shuffle genrated password, so that it i
 
 ## Progress bar added
 
-I have added a bar that show how strong password is depending on the length of it.
+I have added a bar that shows how strong password is depending on the length of it.
 
